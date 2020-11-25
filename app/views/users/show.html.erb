@@ -1,0 +1,8 @@
+<h1>プロフィール</h1>
+<%= image_tag current_user.avatar,  style:'width: 300px; height: 300px;border-radius:50%;-moz-border-radius:50%;-webkit-border-radius:50%;' %>
+<h3>年齢</h3>
+<%= current_user.age %>
+<h3>メールアド</h3>
+<%= current_user.email %>
+<h3><%= link_to "再編集", edit_user_registration_path %></h3>
+
