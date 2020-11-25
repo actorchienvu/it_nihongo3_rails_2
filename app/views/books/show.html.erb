@@ -15,17 +15,22 @@
 </p>
 <%= image_tag @book.image, style:'width: 300px; height: 300px;border-radius:50%;-moz-border-radius:50%;-webkit-border-radius:50%;' %>
 <br>
-<h2>Review From</h2>
-  <%= form_with(model: @book_review, local: true) do |form| %>
-    <%= form.hidden_field :user_id, :value =>  @book.id %>
-    <%= form.hidden_field :book_id, :value => current_user.id %>
+<h3>Review From</h2>
+<%= form_with(model: @book_review, local: true) do |form| %>
+  <%= form.hidden_field :user_id, :value =>  @book.id %>
+  <%= form.hidden_field :book_id, :value => current_user.id %>
   <div class="field">
     <%= form.text_area :review %>
   </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+<h3>Review List</h3>
+<ul>
+  <% @book.book_review.each do |book_review|%>
+    <li><%= book_review.review %>(<%= book_review.user_id %>)</li>
+  <% end %>
+</ul>
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
