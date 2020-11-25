@@ -9,6 +9,10 @@
   <strong>Number of pages:</strong>
   <%= @book.number_of_pages %>
 </p>
+<p>
+  <strong>Detail:</strong>
+  <%= @book.detail %>
+</p>
 <%= image_tag @book.image, style:'width: 300px; height: 300px;border-radius:50%;-moz-border-radius:50%;-webkit-border-radius:50%;' %>
 <br>
 <%= link_to 'Edit', edit_book_path(@book) %> |
